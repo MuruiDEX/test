@@ -1,4 +1,10 @@
-class Pet:
+class Food:
+    def __init__(self,name,value):
+        self.name = name
+        self.value = value
+    
+        
+class Pet(Food):
     def __init__(self,name,type,age):
         self.name = name
         self.type = type
@@ -6,7 +12,7 @@ class Pet:
         self.hunger = 50
         self.mood = 50
     def feed(self):
-        self.hunger += 10
+        self.hunger += self.value
         if self.hunger >= 100:
             self.hunger = 100
             print("He is full")
@@ -30,6 +36,11 @@ pet1 = Pet(name,type,age)
 da = True
 while da:
     act = input("What to do? (feed/play/show/exit): ")
+    food = input("What food do you want to give? (Colbasa/Artem): ")
+    if food == "Colbasa":
+        colbasa = Food("Colbasa",20)
+    else:
+        artem = Food("Artem",30)
     if act == "feed":
         Pet.feed(pet1)
     elif act == "play":
